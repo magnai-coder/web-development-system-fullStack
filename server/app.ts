@@ -56,9 +56,9 @@ app.configure(socketio())
 app.use('messages', new MessageService())
 
 // Add any new real-time connection to the `everybody` channel
-app.on('connection', (connection) => app.channel('everybody').join(connection))
+app.on('connection', (connection: any) => app.channel('everybody').join(connection))
 // Publish all events to the `everybody` channel
-app.publish((_data) => app.channel('everybody'))
+app.publish((_data: any) => app.channel('everybody'))
 
 // Start the server
 app
