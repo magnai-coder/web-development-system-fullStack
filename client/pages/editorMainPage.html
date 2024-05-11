@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="title" content="Project Name" />
+    <meta name="keywords" content="Project Name" />
+    <meta name="description" content="Project Name" />
+
+    </script>
+    <title>WebEd</title>
+
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/media.css">
+    <link rel="shortcut icon" href="#" />
+
+    <script type="module" src="../assets/js/Controllers/selectAndEditController.js" defer></script>
+    <script type="module" src="../assets/js/Controllers/navigatDragAndDropController.js" defer></script>
+    <script type="module" src="../assets/js/Controllers/elementSizeChangeController.js" defer></script>
+</head>
+
+<body>
+    <header class="head">
+        <h2>Бүрдэл</h2>
+        <div class="navigationMain">
+            <div class="navigation">
+                <a href="#">
+                    <img src="../assets/imgs/main/logo.PNG" alt="logo"
+                        style="height: 40px; width: auto; margin-left: 40px;" />
+                </a>
+                <script>
+                    function downloading() {
+                        let imported = document.getElementById('render').contentWindow.document.getElementById("imported");
+                        try {
+                            if (imported) {
+                                const data = imported.outerHTML;
+                                const blob = new Blob([data], { type: "text/html" });
+                                const href = URL.createObjectURL(blob);
+                                const a = Object.assign(document.createElement('a'), { href, style: "display:none", download: "index.html" });
+                                a.click();
+                                URL.revokeObjectURL(href);
+                                a.remove();
+                            } else {
+                                console.error('Huudas oldsongui');
+                            }
+                        } catch (error) {
+                            console.error(error);
+                        }
+                    }
+                    function reloadFrame() {
+                        console.log("shinechlegdlee")
+                        document.getElementById("render").contentWindow.location.reload();
+                    }
+                </script>
+                <navBundleButtons>
+                    <div class="navButtons">
+                        <button id="button1" class="button1" onclick="reloadFrame()">Шинэ</button>
+                        <button class="button2" onclick="downloading()">Экспротлох</button>
+                    </div>
+                </navBundleButtons>
+            </div>  
+        </div>
+        <h2>Загвар</h2>
+    </header>
+    <div id="container">
+        <div class="grid-container">
+            <div class="layoutColumn">
+                <!--accordion for Layouts-->
+                <div>
+                    <ui id="accordionLeft">
+                        <script>
+                            const accordionDataLeft = [
+                                {
+                                    id: 'first', label: 'Толгой хэсэг', content: `
+                                    <div id="navigationLayouts">
+                                        <div>
+                                            <div id="headerSimpleLayoutPartParent" draggable="true">
+                                                <div id="headerSimpleLayoutPart">
+                                                </div>
+                                                <p>Толгой хэсэг (6 товчтой) </p>
+                                            </div>
+                                        </div>
+                                    </div>` },
+                                {
+                                    id: 'second', label: 'Бие хэсэг', content: `
+                                <div id="bodyLayouts">
+                                        <div>
+                                            <div id="bodySimpleLayoutPartParent" draggable="true">
+                                                <div id="bodySimpleLayoutPart">
+                                                </div>
+                                                <p>Бие хэсэг (танилцуулга) </p>
+                                            </div>
+                                        </div>
+                                    </div>` },
+                                {
+                                    id: 'third', label: 'Хөл хэсэг', content: `
+                                <div id="footerLayouts">
+                                        <div>
+                                            <div id="footerSimpleLayoutPartParent" draggable="true">
+                                                <div id="footerSimpleLayoutPart">
+                                                </div>
+                                                <p>Толгой хэсэг (6 товчтой) </p>
+                                            </div>
+                                        </div>
+                                    </div>` },
+                                {
+                                    id: 'fourth', label: 'Элементүүд', content: `
+                                    <div id="elements">
+                                        <div>
+                                            <div class=element id="divTagPart" draggable="true">
+                                                <p id="divTagPart"> div элемент</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class=element id="buttonTagPart" draggable="true">
+                                                <p id="buttonTagPart">Товч элемент</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class=element id="aTagPart" draggable="true">
+                                                <p id="aTagPart">a элемент</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class=element id="pTagPart" draggable="true">
+                                                <p id="pTagPart">p элемент</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class=element id="imageTagPart" draggable="true">
+                                                <p id="imageTagPart">image элемент</p>
+                                            </div>
+                                        </div>
+                                    </div>`
+                                },
+                                
+                            ];
+                            function createAccordionItem(id, label, content) {
+                                const item = document.createElement('li');
+                                item.innerHTML = `<label for="${id}">${label}</label>
+                                <input type="checkbox" name="accordion" id="${id}">
+                                <div class="content">${content}</div>`;
+                                return item;
+                            };
+                            const accordionLeft = document.getElementById('accordionLeft');
+                            accordionDataLeft.forEach(itemData => {
+                                const accordionItem = createAccordionItem(itemData.id, itemData.label, itemData.content);
+                                accordionLeft.appendChild(accordionItem);
+                            });
+                        </script>
+                    </ui>
+                </div>
+            </div>
+            <!-- MainColumn-->
+            <iframe id="render" src="editorWhiteBoard.html">
+            </iframe>
+            
+            <!--StyleColumn-->
+
+            <div class="stylesColumn">
+                <ui id="accordionRight">
+                    <script>
+                        const accordionDataRight = [
+                            { id: 'Typography', label: 'Бичиглэл', content: ' <div class ="forms"><form><label for="font" style="font-size:13px">font:</label><select name="font" id="font"></select></form><form><label for="font-size" style="font-size:13px" >font-size:</label><select name="font-size" id="font-size"></select></form></div>' },
+                            { id: 'Size', label: 'Хэмжээ', content: '<div class ="forms"><form><label for="height" style="font-size:13px">height(px):</label><input type="number" name=" height" id="height"></form><form><label for="width" style="font-size:13px">width(px):</label><input type="number" name="width" id="width"></form></div>' },
+                            { id: 'Border', label: 'Хүрээ', content: '<div class ="forms" ><form><label for="border"  style="font-size:13px">border:</label><select name=" border" id="border"></select></form><form><label for="border-radius" style="font-size:13px">borderradius(%)</label><input type="number" name="border-radius" id="border-radius"></form></div>' },
+                            { id: 'Space', label: 'Зай', content: '<div class ="forms"><form><label for="margin" style="font-size:13px">margin(px):</label><input type="number" name="margin" id="margin"></form><form><label for="padding" style="font-size:13px">padding(px):</label><input type="number" name="padding" id="padding"></form></div>' },
+                            { id: 'Color', label: 'Өнгө', content: '<div class ="forms"><form><label for="color" style="font-size:13px">font color:</label><input type="color" name="color" id="color"></form><form><label for="background color" style="font-size:13px">backgr color:</label><input type="color" name="backgroundColor" id="backgroundColor"></form></div>' },
+                            { id: 'Media', label: 'Зураг', content: '<div class ="forms"><form action="/upload" method="post" enctype="multipart/form-data" ><label for="media" style="font-size:13px">Image:</label><input type="file" name="media" id="backgroundImage" style="width:180px; color:white; margin-bottom: 20px; margin-top: 20px"></form><div id=description style="display: flex; justify-content:center;"></div></div>' }
+                        ];
+                        const accordionRight = document.getElementById('accordionRight');
+                        accordionDataRight.forEach(itemData => {
+                            const accordionItem = createAccordionItem(itemData.id, itemData.label, itemData.content);
+                            accordionRight.appendChild(accordionItem);
+                        });
+                        const fontSize = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 30, 32, 36, 40, 64];
+                        let fontSizeSelection = document.getElementById('font-size');
+                        function fontSizeOptions(size) {
+                            const option = document.createElement('option');
+                            option.value = size + 'px';
+                            option.text = size + 'px';
+                            fontSizeSelection.appendChild(option);
+                        }
+                        fontSize.map(fontSizeOptions);
+
+                        const fontFamily = ['Arial', 'Helvetica', 'Times New Roman', 'Times', 'Courier New', 'Courier', 'Verdana', 'Georgia', 'Palatino', 'Garamond', 'Bookman', 'Comic Sans MS', 'Trebuchet MS', 'Arial Black', 'Impact, Malgun', 'Malgun'];
+                        let fontSelection = document.getElementById('font');
+                        function fontOptions(font) {
+                            const option = document.createElement('option');
+                            option.value = font;
+                            option.text = font;
+                            fontSelection.appendChild(option);
+                        }
+                        fontFamily.map(fontOptions);
+
+                        const border = ['none', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset', 'hidden'];
+                        let borderOptionIn = document.getElementById('border');
+                        function borderOption(border) {
+                            const option = document.createElement('option');
+                            option.value = border;
+                            option.text = border;
+                            borderOptionIn.appendChild(option);
+                        }
+                        border.map(borderOption);
+                    </script>
+                </ui>
+            </div>
+        </div>
+        
+</body>
+
+</html>
