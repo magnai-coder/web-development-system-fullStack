@@ -4,22 +4,23 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="title" content="Project Name" />
-    <meta name="keywords" content="Project Name" />
-    <meta name="description" content="Project Name" />
+    <meta name="title" content="Web development system" />
+    <meta name="keywords" content="web" />
+    <meta name="description" content="Web development system diplom ajil" />
+    
+</script>
+<title>WebEd</title>
 
-    </script>
-    <title>WebEd</title>
+<!-- Style -->
+<link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/media.css">
+<link rel="shortcut icon" href="#" />
 
-    <!-- Style -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/media.css">
-    <link rel="shortcut icon" href="#" />
-
-    <script type="module" src="../assets/js/Controllers/selectAndEditController.js" defer></script>
-    <script type="module" src="../assets/js/Controllers/navigatDragAndDropController.js" defer></script>
-    <script type="module" src="../assets/js/Controllers/elementSizeChangeController.js" defer></script>
+<script type="module" src="../assets/js/Controllers/selectAndEditController.js" defer></script>
+<script type="module" src="../assets/js/Controllers/navigatDragAndDropController.js" defer></script>
+<script type="module" src="../assets/js/Controllers/elementSizeChangeController.js" defer></script>
+<script type = "text/javascript" src="../assets/js/Controllers/dataLogic.js" refer></script>
 </head>
 
 <body>
@@ -29,12 +30,13 @@
             <div class="navigation">
                 <a href="#">
                     <img src="../assets/imgs/main/logo.PNG" alt="logo"
-                        style="height: 40px; width: auto; margin-left: 40px;" />
+                    style="height: 40px; width: auto; margin-left: 40px;" />
                 </a>
                 <script>
+                 
                     function downloading() {
-                        let imported = document.getElementById('render').contentWindow.document.getElementById("imported");
                         try {
+                                let imported = window.parent.document.getElementById('render').contentWindow.document.getElementById('whitePage');
                             if (imported) {
                                 const data = imported.outerHTML;
                                 const blob = new Blob([data], { type: "text/html" });
@@ -43,6 +45,7 @@
                                 a.click();
                                 URL.revokeObjectURL(href);
                                 a.remove();
+                                console.log(imported);
                             } else {
                                 console.error('Huudas oldsongui');
                             }
@@ -54,11 +57,13 @@
                         console.log("shinechlegdlee")
                         document.getElementById("render").contentWindow.location.reload();
                     }
-                </script>
+                    
+                    </script>
                 <navBundleButtons>
                     <div class="navButtons">
                         <button id="button1" class="button1" onclick="reloadFrame()">Шинэ</button>
                         <button class="button2" onclick="downloading()">Экспротлох</button>
+                        <button class="button2" onclick="handleSaveCode()">Preview</button>
                     </div>
                 </navBundleButtons>
             </div>  
