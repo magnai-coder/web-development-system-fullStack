@@ -18,7 +18,8 @@ createP(){
     p.style.minHeight = this.height;
     p.appendChild(textPart);
     p.classList.add('selectable');
+    p.setAttribute("draggable", "false")
     return p;
-}
+  }
 }
 export {P_tag};

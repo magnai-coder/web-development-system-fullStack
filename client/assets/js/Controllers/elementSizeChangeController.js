@@ -257,9 +257,10 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                     selectedElementToChange.style.outline = "5px solid #87CEFA"
                 }   
             }
-                //Hureenii dortor bolon gaduurah cursoriin helberiig zaahaas gadna elementiin bairshiliig uurchluh bolomjtoi bolgoh
+                //Hureenii dotor bolon gaduurah cursoriin helberiig zaahaas gadna elementiin bairshiliig uurchluh bolomjtoi bolgoh
             }else{
                 selectedElementToChange.parentElement.style.cursor = 'default';
+                //double darahad utga uurchlugdun
                 selectedElementToChange.ondblclick = function(){
                     selectedElementToChange.contentEditable = selectedElementToChange.contentEditable === "true" ? "false" : "true";
                 }
@@ -268,7 +269,6 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                 }else{
                     selectedElementToChange.style.cursor = 'all-scroll';
                 }
-                //double darahad utga uurchlugdun
                 selectedElementToChange.onmousedown = function () {
                     var changingX = x - xleftcorner; 
                     var changingY = y - yleftcorner; 
@@ -282,18 +282,27 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                     selectedElementToChange.parentElement.onmousemove = function(e){
                         x = e.clientX;
                         y = e.clientY;
+                        let winWidth = insideWhitePage.getBoundingClientRect().width,
+                        winHeight = insideWhitePage.getBoundingClientRect().height,
+                        mouseMenuWidth = selectedElementToChange.offsetWidth,
+                        mouseMenuHeight = selectedElementToChange.offsetHeight;
+                        
+                        console.log("baigaa"+x);
+                        console.log(y);
+                        console.log("bna"+mouseMenuWidth);
+
+                        x = x > winWidth - mouseMenuWidth/2 ? winWidth - mouseMenuWidth+changingX : x;
+                        y = y > winHeight - mouseMenuHeight/2 ? winHeight - mouseMenuHeight+changingY : y;
+                        x = x < changingX ? mouseMenuWidth/2:x;
+                        y = y < changingY ? mouseMenuHeight/2:y;
                         selectedElementToChange.style.left = x - changingX + "px";
                         selectedElementToChange.style.top = y - changingY + "px";
                     }
-                    selectedElementToChange.parentElement.onmousemove = function(e){
-                        x = e.clientX;
-                        y = e.clientY;
-                        selectedElementToChange.style.left = x - changingX + "px";
-                        selectedElementToChange.style.top = y - changingY + "px";
-                    }
+                    
                 }
                 
                 selectedElementToChange.onmouseup = function () {
+                    
                     
                     selectedElementToChange.onmousedown = function(){
                     }
@@ -308,6 +317,7 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                     }
                     
                 }
+                //parent element deer darval tuhain element idevhjil alga bolno
                 selectedElementToChange.parentElement.onmousedown = function(){
                     selectedElementToChange.parentElement.onmouseup = function(){
 

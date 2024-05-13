@@ -147,6 +147,7 @@ var imageName = "Хоосон";
             }
 
         }else{
+            //select hiigdeegeh bolomjgui gazar darval umnuh select hiisen idevhjil alga bolno
             selectedElement.style.outline = "";
         }
     };

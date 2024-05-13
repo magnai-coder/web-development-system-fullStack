@@ -5,7 +5,7 @@ const whitePageContent = document.getElementById("whitePage")
 whitePageContent.addEventListener("contextmenu", e =>{
     //menunii default utguudiig horiglon
     e.preventDefault();
-    //windowiin undur bolon orgonii utguudiig avlgaa
+    //windowiin undur bolon orgonii utguudiig avlaa
     //objectiin undur bolon urgunii hemjeeg avsan
     let x = e.clientX, y = e.clientY,
     winWidth = whitePageContent.getBoundingClientRect().width,

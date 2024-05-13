@@ -18,14 +18,15 @@
         </div>
         <div class="codeWindows">
             <div class="windows">
-                <div class="htmlPage" style="display: flex; justify-content: center;">
-                    <p style="color: white; font-weight: 800; margin-top: 10px;">HTML</p>
-                </div>
-                <div class="cssPage"style="display: flex; justify-content: center;">
-                    <p  style="color: white; font-weight: 800;margin-top: 10px;">CSS</p>
-                </div>
-                <div class="javascriptPage" style="display: flex; justify-content: center;">
-                    <p  style="color: white; font-weight: 800;margin-top: 10px;">Javascript</p>
+                <div class="tabContainer">
+                    <div class="buttonContainer">
+                        <button onclick="showPanel(0,'#636C6D')">HTML</button>
+                        <button onclick="showPanel(1,'#636C6D')">CSS</button>
+                        <button onclick="showPanel(2,'#636C6D')">Javascript</button>
+                    </div>
+                    <div class="tabPanel"></div>
+                    <div class="tabPanel"></div>
+                    <div class="tabPanel"></div>
                 </div>
             </div>
         </div>
