@@ -5,22 +5,26 @@ const renderContext = window.parent.document.querySelector(".whitePage");
 const codeContext = document.querySelector(".codeWindows");
 var tabButtons=document.querySelectorAll(".tabContainer .buttonContainer button");
 var tabPanels=document.querySelectorAll(".tabContainer  .tabPanel");
-const parentPage2 = window.parent.document.getElementById("main");
 const parentPage = window.parent.document.getElementById("imported");
+const renderFrameContent = window.parent.parent.document.getElementById('render')
+console.log(renderFrameContent)
+
 renderContext.style.height="97vh"
 
 //Mouse udulhud bairshiliig burtgej avah
-parentPage.addEventListener('mousemove', (event)=> {
-   
-    let whitePageHeight = renderContext.getBoundingClientRect().height;
+shifterLever.addEventListener('mousemove', (event)=> {
+
+    
     let y = event.clientY;
+    console.log(y)
     //zaaglagdsan bairshild cursor uurchlugduh
-    if(y<whitePageHeight && y>whitePageHeight-5 && renderContext.style.height!="97vh"){
-        parentPage.style.cursor = 'ns-resize';
-        shifterLever.style.cursor='pointer';
+    if(y<4 && renderContext.style.height!="97vh"){
+        shifterLever.style.cursor = 'ns-resize';
+        shifterLever.removeEventListener('mousedown', changePartRatio);
         //code zasah hesgiin hemjeesiig tataj sungah
-        parentPage.onmousedown = function() {
-            parentPage.onmousemove = function(e) {
+        shifterLever.onmousedown = function() {
+            shifterLever.onmousemove = function(e) {
+                console.log("moude down huraah ajillagaagui bolloo");
                 x = e.clientX;
                 y = e.clientY;
                 let parentPageHeight = parentPage.getBoundingClientRect().height;
@@ -28,8 +32,6 @@ parentPage.addEventListener('mousemove', (event)=> {
                 codeContext.style.display="flex";
                 renderContext.style.height=y+"px";
                 codingSection.style.height=codingSectionHeight+(parentPageHeight-y)+"px";
-                
-
             }
         }
         parentPage.onmouseup = function () {
@@ -41,7 +43,7 @@ parentPage.addEventListener('mousemove', (event)=> {
                 }
                 
             }else{
-                parentPage.style.cursor = 'default';
+                shifterLever.style.cursor = 'default';
                 
 
             }
