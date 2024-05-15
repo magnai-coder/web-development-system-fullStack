@@ -283,9 +283,6 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                         mouseMenuWidth = selectedElementToChange.offsetWidth,
                         mouseMenuHeight = selectedElementToChange.offsetHeight;
                         
-                        console.log("baigaa"+x);
-                        console.log(y);
-                        console.log("bna"+mouseMenuWidth);
 
                         x = x > winWidth - mouseMenuWidth/2 ? winWidth - mouseMenuWidth+changingX : x;
                         y = y > winHeight - mouseMenuHeight/2 ? winHeight - mouseMenuHeight+changingY : y;

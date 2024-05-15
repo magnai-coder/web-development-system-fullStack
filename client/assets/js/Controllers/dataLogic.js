@@ -5,7 +5,6 @@
             const mainCodeContainer = mainCodeContainerRoute.contentWindow.document.getElementById('whitePage');
 
             const test = mainCodeContainer.outerHTML
-            console.log(mainCodeContainer);
             const response = await fetch("http://localhost:3030/save-code",{ 
                 method: "POST",
                 headers: {

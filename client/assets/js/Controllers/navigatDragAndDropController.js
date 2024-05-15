@@ -6,6 +6,7 @@ import { Elements } from "../Containers/baseContainerElements.js";
 const frameInsideMainPage = window.parent.document.getElementById('render');
 //asynchron uildliig boluilj daraalaar kodiig ajluulah
 frameInsideMainPage.onload = function () {
+        
 const frameContent = frameInsideMainPage.contentWindow.document.getElementById("whitePage");
 
 var constuctedPart;
@@ -31,7 +32,7 @@ function handleDragAndDrop(chosenElement) {
             if(hoverElement != event.target.id && event.target.style.width.includes("100%") && constuctedPart.style.width.includes("100%")){
                 hoverElement.style.borderTop = "";
                 hoverElement = event.target;
-                hoverElement.style.borderTop = "5px solid red"  
+                hoverElement.style.borderTop = "10px solid red"  
             }else{     
                 hoverElement.style.borderTop = "";
                 hoverElement = event.target;

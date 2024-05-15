@@ -13,7 +13,7 @@ const renderFrameContent = window.parent.parent.document.getElementById('render'
 renderContext.style.height="97vh"
 //Mouse udulhud bairshiliig burtgej avah
 shifterLever.addEventListener('mousemove', (event)=> {
-console.log(event.clientY);
+
     
     let y = event.clientY;
     //zaaglagdsan bairshild cursor uurchlugduh
@@ -23,7 +23,6 @@ console.log(event.clientY);
         //code zasah hesgiin hemjeesiig tataj sungah
         shifterLever.onmousedown = function() {
             shifterLever.onmousemove = function(e) {
-                console.log("moude down huraah ajillagaagui bolloo");
                 x = e.clientX;
                 y = e.clientY;
                 let parentPageHeight = parentPage.getBoundingClientRect().height;

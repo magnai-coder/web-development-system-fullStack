@@ -270,15 +270,15 @@ var imageName = "Хоосон";
             return selectedImage;
         },
         set: function (value) {
-            if (value !== selectedImage) {
+            if (value !== selectedImage){
                 selectedImage = value;
                 selectedElementBackgroundImageMenu.name = selectedImage;
-                imageName = selectedImage.substring(imageName.length - 7, imageName.length - 2);
+                imageName = selectedImage.substring(0, 4);    
             }
         }
     });
-
-
+    
+    
     
     //Menu hesegt utguudiin uurchlultuud orohod undsen huudas deer obectod uurchlultiig oruulj uguh uuregute
     selectedElementFontMenu.onchange = function(){
@@ -293,7 +293,7 @@ var imageName = "Хоосон";
     };
     selectedElementWidthMenu.onchange = function(){
         selectedElement.style.width = selectedElementWidthMenu.value.trim() + "px";
-
+        
     };
     selectedElementBorderMenu.onchange = function(){
         selectedElement.style.border = selectedElementBorderMenu.value.trim();
@@ -306,11 +306,11 @@ var imageName = "Хоосон";
     selectedElementMarginMenu.onchange = function(){
         selectedElement.style.margin = selectedElementMarginMenu.value.trim() + "px";
         
-
+        
     };
     selectedElementPaddingMenu.onchange = function(){
         selectedElement.style.padding = selectedElementPaddingMenu.value.trim() + "px";
-
+        
     };
     selectedElementColorMenu.onchange = function(){
         selectedElement.style.color = selectedElementColorMenu.value.trim();
@@ -318,22 +318,23 @@ var imageName = "Хоосон";
     };
     selectedElementBackgroundColorMenu.onchange = function(){
         selectedElement.style.backgroundColor = selectedElementBackgroundColorMenu.value.trim();
-
+        
     };
     selectedElementBackgroundImageMenu.onchange = function(){
         const reader = new FileReader();
         reader.readAsDataURL(this.files[0]);
         reader.onload = function(){            
-        if (notSelectDiv.includes('img')) {
+            if (notSelectDiv.includes('img')) {
                 selectedElement.src = reader.result;
-
             } else {
                 selectedElement.style.backgroundImage = `url(${reader.result})`;
             }
         }
+        
     };
-
+    
     //Zurag uurchluh oruulah hesgiin tohirgoo
+    
     imageDescription.style.margin = "10px";
     buttonDelete.style.color = "black";
     buttonDelete.style.backgroundColor = "white";
@@ -342,19 +343,10 @@ var imageName = "Хоосон";
     buttonDelete.textContent = "Зураг устгах";
     descriptionIn.style.marginRight = "25px"
     buttonDelete.onclick = function(){
-        selectedElement.style.backgroundImage = 'none';;
+        selectedElement.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9BCdRVRqfpjUy8KUyojVLPKzAtxxcPZ-SaY5HNafZMq_s1vb9CAe5WH1HzLZ0eJXPW6g&usqp=CAU";
+        selectedElementBackgroundImageMenu.splice();
     }
-    function beOrNotTobe(name) {
-        if (name == "Хоосон") {
-            return "Зураг байхгүй байна...";
-        } else {
-            return "Зураг орсон байна...";
-        }
-    }
-    
-    let definition = beOrNotTobe(imageName);
-    descriptionIn.textContent = definition;
-    
     imageDescription.appendChild(descriptionIn);
     imageDescription.appendChild(buttonDelete);
+    
     
