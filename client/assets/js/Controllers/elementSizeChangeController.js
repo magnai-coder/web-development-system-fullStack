@@ -17,16 +17,12 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
             if (x > xleftcorner - 20 && x < xleftcorner + 2 && yleftcorner - 13 < y && y < yleftcorner + 2){
                 selectedElementToChange.parentElement.style.cursor = 'nwse-resize';
                 selectedElementToChange.style.cursor = 'nwse-resize';
-                
                 selectedElementToChange.parentElement.onmousedown = function() {
                     selectedElementToChange.parentElement.onmousemove = function(e) {
-                        
                         x = e.clientX;
                         y = e.clientY;
                         selectedElementToChange.style.top = y + 'px';
                         selectedElementToChange.style.left = x + 'px';
-                        
-                        
                         selectedElementToChange.style.width = xleftcorner-x+selectedElementWidth + 'px';
                         selectedElementToChange.style.height = yleftcorner-y+selectedElementHeight + 'px';
                     }

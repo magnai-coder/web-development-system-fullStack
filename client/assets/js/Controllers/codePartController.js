@@ -7,18 +7,17 @@ var tabButtons=document.querySelectorAll(".tabContainer .buttonContainer button"
 var tabPanels=document.querySelectorAll(".tabContainer  .tabPanel");
 const parentPage = window.parent.document.getElementById("imported");
 const renderFrameContent = window.parent.parent.document.getElementById('render')
-console.log(renderFrameContent)
+
+
 
 renderContext.style.height="97vh"
-
 //Mouse udulhud bairshiliig burtgej avah
 shifterLever.addEventListener('mousemove', (event)=> {
-
+console.log(event.clientY);
     
     let y = event.clientY;
-    console.log(y)
     //zaaglagdsan bairshild cursor uurchlugduh
-    if(y<4 && renderContext.style.height!="97vh"){
+    if(y<8 && renderContext.style.height!=="97vh"){
         shifterLever.style.cursor = 'ns-resize';
         shifterLever.removeEventListener('mousedown', changePartRatio);
         //code zasah hesgiin hemjeesiig tataj sungah
@@ -30,25 +29,23 @@ shifterLever.addEventListener('mousemove', (event)=> {
                 let parentPageHeight = parentPage.getBoundingClientRect().height;
                 let codingSectionHeight = codingSection.getBoundingClientRect().height;
                 codeContext.style.display="flex";
-                renderContext.style.height=y+"px";
-                codingSection.style.height=codingSectionHeight+(parentPageHeight-y)+"px";
+                renderContext.style.height=parentPageHeight+y+"px";
+                codingSection.style.height=codingSectionHeight-y+"px";
             }
         }
-        parentPage.onmouseup = function () {
-            parentPage.onmousedown = function(){
+        shifterLever.onmouseup = function () {
+            shifterLever.onmousedown = function(){
                     }
-                    parentPage.onmousemove = function(){   
-
+                    shifterLever.onmousemove = function(){   
                     } 
                 }
                 
             }else{
-                shifterLever.style.cursor = 'default';
-                
-
+                shifterLever.style.cursor = 'pointer';
+                shifterLever.addEventListener('mousedown', changePartRatio);
             }
-        
         })
+
         
         //Code heseg harahiig darhad code zasvarlah heseg bolon code uurchluh hesgiin hemjees uurchlugdun
         shifterLever.addEventListener("mousedown", changePartRatio);
