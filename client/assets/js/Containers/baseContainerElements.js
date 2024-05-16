@@ -23,7 +23,7 @@ class Elements {
         return aTag;
     }
     if (typeName === "divTagPart"){
-        const divTag = new Div("40vh", "20vw", "transparent").createDiv();
+        const divTag = new Div("10vw", "10vh", "transparent").createDiv();
         divTag.style.position = "absolute";  
     return divTag;
     }

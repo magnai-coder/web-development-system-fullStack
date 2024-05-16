@@ -9,7 +9,7 @@ frameInsideMainPage.onload = function () {
         
 const frameContent = frameInsideMainPage.contentWindow.document.getElementById("whitePage");
 
-var constuctedPart;
+var constructedPart;
 var hoverElement = frameInsideMainPage.contentWindow.document.getElementById("whitePage"); 
 // dragAndDrop undsen code
 function handleDragAndDrop(chosenElement) {
@@ -18,9 +18,9 @@ function handleDragAndDrop(chosenElement) {
         const elements = new Elements();
         
         if (chosenElement.id.includes("Layout")) {
-            constuctedPart = layout.createLayout(chosenElement.id);
+            constructedPart = layout.createLayout(chosenElement.id);
         } else if (chosenElement.id.includes("Tag")) {
-            constuctedPart = elements.createElement(chosenElement.id);
+            constructedPart = elements.createElement(chosenElement.id);
         }
         
         var x;
@@ -29,7 +29,7 @@ function handleDragAndDrop(chosenElement) {
             event.preventDefault();
             /*umnuh hover hiisen element odoogiin hover hiij bui elementees uur, urgun n 100% gsn baih, zuuj bui object n 
             urgun n 100% aguulsan baival tuhain componentiin deed huree ulaan ungu uzuulne. Ingesneer oruulah gej bui componentiin bairshiliig medej bolno*/
-            if(hoverElement != event.target.id && event.target.style.width.includes("100%") && constuctedPart.style.width.includes("100%")){
+            if(hoverElement != event.target.id && event.target.style.width.includes("100%") && constructedPart.style.width.includes("100%")){
                 hoverElement.style.borderTop = "";
                 hoverElement = event.target;
                 hoverElement.style.borderTop = "10px solid red"  
@@ -38,19 +38,27 @@ function handleDragAndDrop(chosenElement) {
                 hoverElement = event.target;
 
             }
-            x = event.pageX;
-            y = event.pageY;
+            x = event.clientX;
+            y = event.clientY;
         }
 
-        function drop() {
+        function drop(){
             //drop hiih uyed haan unaj baigaagaas hamaarch (if nuhtsold shalguuraas hamaarch) yamar componentiin umnu bairluulahiig shiidne
-            if(constuctedPart.style.width.includes("100%") && frameContent.children[0] != null && hoverElement.className !="whitePage"){
-                frameContent.insertBefore(constuctedPart, hoverElement);
+            if(constructedPart.style.width.includes("100%") && frameContent.children[0] != null && hoverElement.className !="whitePage"){
+                frameContent.insertBefore(constructedPart, hoverElement);
                 hoverElement.style.borderTop = "";
             }else{
-                constuctedPart.style.top = y + 'px';
-                constuctedPart.style.left = x + 'px';
-                frameInsideMainPage.contentWindow.document.getElementById(hoverElement.id).appendChild(constuctedPart);
+                constructedPart.style.top = y + 'px';
+                constructedPart.style.left = x + 'px';
+                if(hoverElement.id != "whitePage"){
+                    constructedPart.style.top = y + 'px';
+                    constructedPart.style.left = x + 'px';
+                    constructedPart.style.display = "flex";
+                    constructedPart.style.position = "static";
+                    constructedPart.style.justifyItems = "space-around";
+
+                }
+                frameInsideMainPage.contentWindow.document.getElementById(hoverElement.id).appendChild(constructedPart);
                 frameContent.removeEventListener("dragover", dragOver);
                 frameContent.removeEventListener("drop", drop);
             }

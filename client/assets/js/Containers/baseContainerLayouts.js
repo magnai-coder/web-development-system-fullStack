@@ -18,9 +18,8 @@ class Layouts {
       const divObject = new Div("100%", "15vh", "white");
 
       const divIn = divObjectInner.createDiv();
-      divIn.classList.remove("selectable");
       divIn.style.backgroundColor = "transparent";
-      divIn.style.border = "none";
+     
 
       const div = divObject.createDiv();
       const logo = imageObject.createImg();
@@ -41,15 +40,14 @@ class Layouts {
       const pTags = Array.from({ length: 1 }, () => new P_tag("Энд тайлбар мэдээлэл оруулна уу", "16px", "Malgun", "black", "auto", "40px").createP());
       const pTags2 = new P_tag("Гарчиг", "32px", "Malgun", "black", "auto", "auto").createP();
       const imageObject = new Images([30, 30]);
-
+      
       const divObjectInner = new Div("35%", "auto", "white");
       const divObject = new Div("100%", "50vh", "white");
       const buttonIns = new Button('12', 'Malgun', 'grey', 'Товч', [30, 100], 5, 3, 0, 'solid');
       const button = buttonIns.createButton();
       const divIn = divObjectInner.createDiv();
-      divIn.classList.remove("selectable");
       divIn.style.backgroundColor = "transparent";
-      divIn.style.border = "none";
+     
       
 
       const div = divObject.createDiv();
@@ -89,9 +87,8 @@ class Layouts {
       const divObject = new Div("100%", "10vh", "white");
 
       const divIn = divObjectInner.createDiv();
-      divIn.classList.remove("selectable");
       divIn.style.backgroundColor = "transparent";
-      divIn.style.border = "none";
+      
 
       const div = divObject.createDiv();
 
