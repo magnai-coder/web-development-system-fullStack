@@ -20,6 +20,8 @@
     <script type="module" src="../assets/js/Controllers/navigatDragAndDropController.js" defer></script>
     <script type="module" src="../assets/js/Controllers/elementSizeChangeController.js" defer></script>
     <script type="text/javascript" src="../assets/js/Controllers/dataLogic.js" defer></script>
+    <script src="../assets/js/Controllers/documentObjectModelController.js" defer></script>
+
 </head>
 
 <body>
@@ -31,31 +33,6 @@
                     <img src="../assets/imgs/main/logo.PNG" alt="logo"
                         style="height: 40px; width: auto; margin-left: 40px;" />
                 </a>
-                <script>
-                    function downloading() {
-                        try {
-                            let imported = window.parent.document.getElementById('render').contentWindow.document.getElementById('whitePage');
-                            if (imported) {
-                                const data = imported.outerHTML;
-                                const blob = new Blob([data], { type: "text/html" });
-                                const href = URL.createObjectURL(blob);
-                                const a = Object.assign(document.createElement('a'), { href, style: "display:none", download: "index.html" });
-                                a.click();
-                                URL.revokeObjectURL(href);
-                                a.remove();
-                                console.log(imported);
-                            } else {
-                                console.error('Huudas oldsongui');
-                            }
-                        } catch (error) {
-                            console.error(error);
-                        }
-                    }
-                    function reloadFrame() {
-                        console.log("shinechlegdlee")
-                        document.getElementById("render").contentWindow.location.reload(true);
-                    }
-                </script>
                 <div class="navButtons">
                     <button id="button1" class="button1" onclick="reloadFrame()">Шинэ</button>
                     <button class="button2" onclick="downloading()">Экспротлох</button>

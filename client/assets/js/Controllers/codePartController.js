@@ -13,8 +13,6 @@ const renderFrameContent = window.parent.parent.document.getElementById('render'
 renderContext.style.height="97vh"
 //Mouse udulhud bairshiliig burtgej avah
 shifterLever.addEventListener('mousemove', (event)=> {
-
-    
     let y = event.clientY;
     //zaaglagdsan bairshild cursor uurchlugduh
     if(y<8 && renderContext.style.height!=="97vh"){
@@ -35,7 +33,7 @@ shifterLever.addEventListener('mousemove', (event)=> {
         shifterLever.onmouseup = function () {
             shifterLever.onmousedown = function(){
                     }
-                    shifterLever.onmousemove = function(){   
+                      shifterLever.onmousemove = function(){   
                     } 
                 }
                 
@@ -45,7 +43,6 @@ shifterLever.addEventListener('mousemove', (event)=> {
             }
         })
 
-        
         //Code heseg harahiig darhad code zasvarlah heseg bolon code uurchluh hesgiin hemjees uurchlugdun
         shifterLever.addEventListener("mousedown", changePartRatio);
         function changePartRatio() {

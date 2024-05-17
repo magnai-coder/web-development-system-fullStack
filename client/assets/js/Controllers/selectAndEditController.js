@@ -48,23 +48,33 @@ var selectedDisplay;
 var selectedPosition;
 var selectedJustifyContent;
 var selectedAlignContent;
-var selectedJustifyItems;
+var selectedJustifyItems = " ";
 var selectedAlignItems;
 var selectedGap;
 
 var imageName = "Хоосон";
 //Download blob object 
 
+
     
 
-
+    
     //Elementuudeed select hiih uyed elementiig uurtuu hadgalah huvisagch
     var selectedPart = null;
-    var selectedElement = null;
+    var selectedElement = " ";
     //herev element deer darval tuhain elementiig avna
     renderFrameContent.contentWindow.onmousedown = function(event){
         selectedPart = event.target;
         if (selectedPart.className.includes('selectable')) {
+            if(selectedPart === selectedElement){
+                if(selectedElement.style.outline === "none"){
+                    selectedElement.style.outline = "5px solid #87CEFA";
+                }else{
+                    selectedElement.style.outline = "none";
+                }
+                
+            }else{
+                
             selectedElement = selectedPart;
             const selectableElements = renderFrameContent.contentWindow.document.querySelectorAll('.selectable');
             //Songoson elementees busdiig todruulahiig zogsooh
@@ -73,8 +83,6 @@ var imageName = "Хоосон";
             });
             // document.getElementById("myH1").setAttribute("class", "democlass"); 
             
-            
-            selectedElement.style.outline = "5px solid #87CEFA"
             notSelectDiv = selectedElement.tagName.toLowerCase().substring(0, 3);
             //     if (notSelectDiv.includes('div')) {
             //         selectedElement.style.width="100%"
@@ -96,7 +104,7 @@ var imageName = "Хоосон";
             //     }
             // }
             //double darahad utga uurchlugdun
-         
+            selectedElement.style.outline = "5px solid #87CEFA";}
             selectedElement.ondblclick = function(){
                 selectedElement.contentEditable = selectedElement.contentEditable === "true" ? "false" : "true";
             }
@@ -219,15 +227,14 @@ var imageName = "Хоосон";
                     }
                 }
             }
-
+            
         }else{
             //select hiigdeegeh bolomjgui gazar darval umnuh select hiisen idevhjil alga bolno
             selectedElement.style.outline = "";
         }
     };
- 
-
-    //Select hiigdsen styluudiig menu hesgiin oroltiin heseg shiljuulen haruulah real-time uurchlult uugeer hiigdej bga
+    
+        //Select hiigdsen styluudiig menu hesgiin oroltiin heseg shiljuulen haruulah real-time uurchlult uugeer hiigdej bga
     Object.defineProperty(window, 'selectedFontFamily', {
         get: function () {
             return selectedFontFamily;
@@ -262,11 +269,11 @@ var imageName = "Хоосон";
         }
     });
 
-
-
-
-
-
+    
+    
+    
+    
+    
     Object.defineProperty(window, 'selectedTextAlign', {
         get: function () {
             return selectedTextAlign;
@@ -355,8 +362,8 @@ var imageName = "Хоосон";
             }
         }
     });
-
-
+    
+    
     Object.defineProperty(window, 'selectedHeight', {
         get: function () {
             return selectedHeight;
