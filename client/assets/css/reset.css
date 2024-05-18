@@ -11,7 +11,7 @@ caption {display: block; position: absolute; overflow: hidden; padding: 0; width
 h1, h2, h3, h4, h5, h6 {box-sizing: border-box; font-weight:normal;font-size: inherit;}
 em {font-style:normal;}
 header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption {display:block; padding:0; margin:0;}
-button {cursor:pointer;box-sizing: border-box;display:block;border:none; background:none; font-family:inherit; color:#000;}
+button {cursor:pointer;box-sizing: border-box;display:block;border:none; background:none; font-family:"Pretendard"; color:#000;}
 hr {display:none;}
 legend {position:absolute; left:-1000%; top:0; width:1px; height:1px; font-size:0; line-height:0; overflow:hidden; text-indent:-9999px;}
 input, button, select, textarea {vertical-align:top;}

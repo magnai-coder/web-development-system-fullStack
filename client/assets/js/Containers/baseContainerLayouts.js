@@ -16,9 +16,10 @@ class Layouts {
 
       const divObjectInner = new Div("50%", "30%", "white");
       const divObject = new Div("100%", "15vh", "white");
-
       const divIn = divObjectInner.createDiv();
       divIn.style.backgroundColor = "transparent";
+      divIn.style.border = "dotted";
+
      
 
       const div = divObject.createDiv();
@@ -62,6 +63,7 @@ class Layouts {
       divIn.style.display = "block";
       divIn.style.position = "relative";
       divIn.style.textAlign = "top";
+      divIn.style.border = "dotted";
       div.style.display = "flex";
       div.style.justifyContent = "space-around";
       div.style.alignItems = "center";
@@ -73,7 +75,7 @@ class Layouts {
       const aTags = Array.from({ length: 4 }, () => new A_tag('none', 'black', '#', 'Текст оруулах', '14px', '10px').createA());
       
       const mapingImage = hrefLogo.map(url => {
-        const images = new Images([4, 3], '50%').createImg();
+        const images = new Images([3, 2], '50%').createImg();
         images.src = url;
         return images;
       });
@@ -83,11 +85,12 @@ class Layouts {
         return aTagContainer;
       })
       
-      const divObjectInner = new Div("50%", "30%", "white");
-      const divObject = new Div("100%", "10vh", "white");
+      const divObjectInner = new Div("70%", "30%", "white");
+      const divObject = new Div("100%", "13vh", "white");
 
       const divIn = divObjectInner.createDiv();
       divIn.style.backgroundColor = "transparent";
+      divIn.style.border = "dotted";
       
 
       const div = divObject.createDiv();
