@@ -25,7 +25,7 @@ class Div{
         container.style.backgroundColor = this.backgroundColor;
         container.classList.add('selectable');
         container.style.backgroundRepeat = "no-repeat";
-        container.style.objectFit = "cover";
+        container.style.objectFit = "contain";
         container.tabIndex = "0";
         container.style.border= "solid 1px";
 

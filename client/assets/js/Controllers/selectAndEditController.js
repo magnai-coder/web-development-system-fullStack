@@ -22,6 +22,7 @@ const selectedElementAlignContentMenu = window.parent.document.getElementById('a
 const selectedElementJustifyItemsMenu = window.parent.document.getElementById('justifyItems')
 const selectedElementAlignItemsMenu = window.parent.document.getElementById('alignItems')
 const selectedElementGapMenu = window.parent.document.getElementById('gap')
+const selectedElementObjectFitMenu = window.parent.document.getElementById('objectFit')
 
 let imageDescription = window.parent.document.getElementById('description');
 let descriptionIn = window.parent.document.createElement('p');
@@ -51,6 +52,7 @@ var selectedAlignContent;
 var selectedJustifyItems = " ";
 var selectedAlignItems;
 var selectedGap;
+var selectedObjectFit;
 
 var imageName = "Хоосон";
 //Download blob object 
@@ -153,8 +155,6 @@ var imageName = "Хоосон";
                 else if (collectStyle[i] === 'font-weight') {
                     window.selectedFontWeight = collectStyle.getPropertyValue('font-weight');
                 }
-
-
                 else if (collectStyle[i] === 'text-align') {
                     window.selectedTextAlign = collectStyle.getPropertyValue('text-align');
                 }else if (collectStyle[i] === 'display') {
@@ -172,8 +172,9 @@ var imageName = "Хоосон";
                 }else if (collectStyle[i] === 'gap') {
                     window.selectedGap = collectStyle.getPropertyValue('gap');
                 }
-
-
+                else if (collectStyle[i] === 'object-fit') {
+                    window.selectedObjectFit = collectStyle.getPropertyValue('object-fit');
+                }
                 else if (collectStyle[i] === 'height') {
                     window.selectedHeight = collectStyle.getPropertyValue('height');
                 }
@@ -362,6 +363,17 @@ var imageName = "Хоосон";
             }
         }
     });
+    Object.defineProperty(window, 'selectedObjectFit', {
+        get: function () {
+            return selectedObjectFit;
+        },
+        set: function (value) {
+            if (value !== selectedObjectFit) {
+                selectedObjectFit = value;
+                selectedElementObjectFitMenu.value = selectedObjectFit;
+            }
+        }
+    });
     
     
     Object.defineProperty(window, 'selectedHeight', {
@@ -527,6 +539,9 @@ var imageName = "Хоосон";
         selectedElement.style.padding = selectedElementPaddingMenu.value.trim() + "px";
         
     };
+    selectedElementObjectFitMenu.onchange = function(){
+        selectedElement.style.objectFit = selectedElementObjectFitMenu.value.trim();
+    };
     selectedElementColorMenu.onchange = function(){
         selectedElement.style.color = selectedElementColorMenu.value.trim();
         
@@ -558,7 +573,7 @@ var imageName = "Хоосон";
     buttonDelete.textContent = "Зураг устгах";
     descriptionIn.style.marginRight = "25px"
     buttonDelete.onclick = function(){
-        selectedElement.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9BCdRVRqfpjUy8KUyojVLPKzAtxxcPZ-SaY5HNafZMq_s1vb9CAe5WH1HzLZ0eJXPW6g&usqp=CAU";
+        selectedElement.src="https://www.freeiconspng.com/uploads/img-landscape-photo-photography-picture-icon-12.png";
         selectedElementBackgroundImageMenu.splice();
     }
     imageDescription.appendChild(descriptionIn);

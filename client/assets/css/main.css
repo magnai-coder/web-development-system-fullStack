@@ -408,7 +408,7 @@ h2 {
     padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+   
     font-size: 14px;
     font-family: "Pretendard";
     cursor: pointer;
@@ -447,19 +447,24 @@ h2 {
     display: flex;
     text-align: center;
     align-items: center;
-    justify-content: center;
-    background-color: azure;
-    border-radius: 10px;
-    color: black;
+    justify-content:space-around;
+    background-color: #292929;
+    border-radius: 5px;
+    color: #C1C1C1;
     margin: 10px;
-    margin-left: 50px;
-    margin-right: 50px;
-    border: solid black;
+    margin-left: 60px;
+    margin-right: 60px;
+    padding: 5px;
+    border: solid #606465 0.5px;
     cursor: grab;
     font-family: "Pretendard";
     font-size: 13px;
     font-weight: 400;
     
+}
+.element img{
+    width: 20px;
+    height: 20px;
 }
 
 /*mouse baruun tovch menu css*/

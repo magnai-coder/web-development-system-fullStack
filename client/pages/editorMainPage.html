@@ -36,7 +36,7 @@
                 <div class="navButtons">
                     <button id="button1" class="button1" onclick="reloadFrame()">Шинэ</button>
                     <button class="button2" onclick="downloading()">Экспротлох</button>
-                    <button class="button2" onclick="handleSaveCode()">Preview</button>
+                    <button class="button2" onclick="handleSaveCode()">Урьдчилан харах</button>
                 </div>
             </div>
         </div>
@@ -94,26 +94,31 @@
                             <div id="elements">
                                 <div>
                                     <div class=element id="divTagPart" draggable="true">
+                                        <img src="../assets/imgs/main/icons/div.PNG">
                                         <p id="divTagPart"> div элемент</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div class=element id="buttonTagPart" draggable="true">
+                                        <img src="../assets/imgs/main/icons/button.PNG">
                                         <p id="buttonTagPart">Товч элемент</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div class=element id="aTagPart" draggable="true">
+                                        <img src="../assets/imgs/main/icons/atag.PNG">
                                         <p id="aTagPart">a элемент</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div class=element id="pTagPart" draggable="true">
+                                        <img src="../assets/imgs/main/icons/text.PNG">
                                         <p id="pTagPart">p элемент</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div class=element id="imageTagPart" draggable="true">
+                                        <img src="../assets/imgs/main/icons/image.PNG">
                                         <p id="imageTagPart">image элемент</p>
                                     </div>
                                 </div>
@@ -123,7 +128,7 @@
                 
                     function createAccordionItem(id, label, content) {
                         const item = document.createElement('li');
-                        item.innerHTML = `<label for="${id}">${label}</label>
+                        item.innerHTML = ` <label for="${id}"><img src="../assets/imgs/main/icons/plus.PNG" style="width:20px; height:20px">${label}</label>
                         <input type="checkbox" name="accordion" id="${id}">
                         <div class="content">${content}</div>`;
                         return item;
@@ -168,7 +173,7 @@
                             { id: 'Border', label: 'Хүрээ', content: '<div class ="forms" ><form><label for="border"  style="font-size:13px">border:</label><select name="border" id="border"></select></form><form><label for="border-radius" style="font-size:13px">borderradius(%)</label><input type="number" name="border-radius" id="border-radius"></form></div>' },
                             { id: 'Space', label: 'Зай', content: '<div class ="forms"><form><label for="margin" style="font-size:13px">margin(px):</label><input type="number" name="margin" id="margin"></form><form><label for="padding" style="font-size:13px">padding(px):</label><input type="number" name="padding" id="padding"></form></div>' },
                             { id: 'Color', label: 'Өнгө', content: '<div class ="forms"><form><label for="color" style="font-size:13px">font color:</label><input type="color" name="color" id="color"></form><form><label for="background color" style="font-size:13px">back color:</label><input type="color" name="backgroundColor" id="backgroundColor"></form></div>' },
-                            { id: 'Media', label: 'Медиа', content: '<div class ="forms"><form action="/upload" method="post" enctype="multipart/form-data"><label for="media" style="font-size:13px">Image:</label><input type="file" name="media" id="backgroundImage" style="width:180px; color:white; margin-bottom: 20px; margin-top: 20px"></form><div id="description" style="display: flex; justify-content:center;"></div></div>' },
+                            { id: 'Media', label: 'Медиа', content: '<div class ="forms"><form action="/upload" method="post" enctype="multipart/form-data"><label for="media" style="font-size:13px">Image:</label><input type="file" name="media" id="backgroundImage" style="width:180px; color:white; margin-bottom: 20px; margin-top: 20px"></form><div id="description" style="display: flex; justify-content:center;"></div><form><label for="objectFit" style="font-size:13px">objectFit:</label><select name="objectFit" id="objectFit"></select></form></div>' },
                             { id: 'Display', label: 'Дэлгэц', content: '<div class ="forms"><form><label for="display" style="font-size:13px">display:</label><select name="display" id="display"></select></form><form><label for="position" style="font-size:13px">position:</label><select name="position" id="position"></select></form></div>' },
                             { id: 'Alignment', label: 'Эгнүүлэх', content: '<div class ="forms"><form><label for="justifyContent" style="font-size:13px">justifyContent:</label><select name="justifyContent" id="justifyContent"></select></form><form><label for="alignContent" style="font-size:13px">alignContent:</label><select name="alignContent" id="alignContent"></select></form><form><label for="justifyItems" style="font-size:13px">justifyItems:</label><select name="justifyItems" id="justifyItems"></select></form><form><label for="alignItems" style="font-size:13px">alignItems:</label><select name="alignItems" id="alignItems"></select></form><form><label for="gap" style="font-size:13px">gap(px):</label><input type="number" name="gap" id="gap"></form></div>' },
                         ];
@@ -293,6 +298,14 @@
                 justifyContentSelect.appendChild(option);
             });
 
+            const objectFitOptions = ['fill', 'contain', 'cover', 'none', 'scale-down'];
+            const objectFitSelect = document.getElementById('objectFit');
+            objectFitOptions.forEach(objectFit => {
+                const option = document.createElement('option');
+                option.value = objectFit;
+                option.textContent = objectFit;
+                objectFitSelect.appendChild(option);
+            });
             
             const alignContentOptions = ['stretch', 'center', 'flex-start', 'flex-end', 'space-between', 'space-around'];
             const alignContentSelect = document.getElementById('alignContent');
