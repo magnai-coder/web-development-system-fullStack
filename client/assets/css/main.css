@@ -641,3 +641,7 @@ h2 {
     font-size: 22px;
     display: none;
 }
+#container{
+    display: inline;
+    position: relative;
+}
