@@ -16,7 +16,7 @@ function downloading() {
         console.error(error);
     }
 }
-function reloadFrame() {
-    console.log("shinechlegdlee")
-    document.getElementById("render").contentWindow.document.getElementById("whitePage").removeChild();
+function reloadFrame(){
+    console.log(document.getElementById("render").contentWindow.document.getElementById("whitePage"));
+    document.getElementById("render").contentWindow.location.reload(true);
 }
