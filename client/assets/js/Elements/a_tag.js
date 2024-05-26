@@ -14,7 +14,7 @@ class A_tag{
         a.href = this.href;
         a.style.color = this.color;
         a.style.text = this.text;
-        a.style.fontSize = this.size;
+        a.style.fontSize = "inherit";
         a.style.margin = this.margin;
         a.classList.add('selectable');
         a.appendChild(text);

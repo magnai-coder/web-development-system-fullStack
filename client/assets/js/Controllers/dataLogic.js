@@ -11,7 +11,8 @@ async function handleSaveCode() {
             throw new Error("Unable to find 'whitePage' element in iframe document");
         }
         
-        const test = mainCodeContainer.outerHTML;
+        const test = mainCodeContainer.innerHTML;
+       
         const response = await fetch("http://localhost:3030/save-code", {
             method: "POST",
             headers: {
@@ -37,9 +38,9 @@ async function handleSaveCode() {
         const fetchedData = await responseGet.json();
         console.log("Code saved successfully");
         const count = fetchedData.data.length;
-        console.log(count);
         const pureData = fetchedData.data[count-1].text;
         // Store pureData in sessionStorage for retrieval on the next page
+        sessionStorage.clear();
         sessionStorage.setItem('pureData', pureData);
         
         // Redirect to the second page
@@ -67,9 +68,9 @@ async function handleSaveCode2() {
         console.log("Code saved successfully");
         const count = fetchedData.data.length;
         const pureData = fetchedData.data[count-1].text;
-        // Store pureData in sessionStorage for retrieval on the next page
+        // Store pureData in sessionStorage for retrieval on the next 
+        sessionStorage.clear();
         sessionStorage.setItem('pureData', pureData);
-        console.log("session hadgalla")
         // Redirect to the second page
         window.location.href = "http://127.0.0.1:5500/client/pages/editorMainPage.html";
     } catch (error) {
@@ -83,7 +84,6 @@ function updateSourceCode() {
 
     if (pureData) {
         sourceCode.insertAdjacentHTML('afterbegin', pureData);
-        console.log(pureData);
     } else {
         console.error("No data found in sessionStorage.");
     }
@@ -94,28 +94,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector(".addingSection")) {
        
         updateSourceCode();
-        console.log("shiljlee")
+       
     }
 });
 
 
 
+const mainCodeContainerRoute = window.parent.document.getElementById('render');
 
 async function backPage(){
+    
     try {
-        const mainCodeContainerRoute = window.parent.document.getElementById('render');
-    const mainCodeContainer = mainCodeContainerRoute.contentWindow.document.getElementById('whitePage');
-     console.log(pureData)
-       const pureData = sessionStorage.getItem('pureData');
-       if (pureData) {
-           console.log(mainCodeContainer);
-           mainCodeContainer.insertAdjacentHTML('afterbegin', pureData);
-           console.log(pureData);
+        const pureData = sessionStorage.getItem('pureData');
+        const mainCodeContainer = document.getElementById('whitePage');
+        if(pureData){
+                mainCodeContainer.insertAdjacentHTML('afterbegin', pureData)
+                console.log(pureData)
         }
     }catch(error){
         console.error("No data found in sessionStorage.");
     }
-    console.log("huudsan deer ajilllaa")
 }
 
 
@@ -123,5 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.parent.document.getElementById('render')) {
         // This is the second page
         backPage();
+
     }
 });

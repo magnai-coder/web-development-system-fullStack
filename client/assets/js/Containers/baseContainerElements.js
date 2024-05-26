@@ -14,6 +14,7 @@ class Elements {
     if (typeName === "buttonTagPart") {
         const button = new Button('12', 'Malgun', 'grey', 'Товч', [30, 100], 5, 3, 0, 'solid').createButton();
         button.style.position = "absolute";
+      
       return button;
     }
     if (typeName === "aTagPart") {

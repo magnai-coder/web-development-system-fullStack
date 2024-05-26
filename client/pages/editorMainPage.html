@@ -50,7 +50,7 @@
                     <ul id="accordionLeft">
                     </ul>
                 </div>
-                
+
                 <script>
                     const accordionDataLeft = [
                         {
@@ -125,7 +125,7 @@
                             </div>`
                         }
                     ];
-                
+
                     function createAccordionItem(id, label, content) {
                         const item = document.createElement('li');
                         item.innerHTML = ` <label for="${id}"><img src="../assets/imgs/main/icons/plus.PNG" style="width:20px; height:20px">${label}</label>
@@ -133,30 +133,30 @@
                         <div class="content">${content}</div>`;
                         return item;
                     }
-                
+
                     const accordionLeft = document.getElementById('accordionLeft');
                     let activeItem = null;
                     accordionDataLeft.forEach(itemData => {
                         const accordionItem = createAccordionItem(itemData.id, itemData.label, itemData.content);
                         accordionLeft.appendChild(accordionItem);
-                            const checkbox = accordionItem.querySelector(`#${itemData.id}`);
-                            checkbox.addEventListener('change', () => {
-                                if (checkbox.checked) {
-                                    // If an item is checked, deactivate the previously active item
-                                    if (activeItem && activeItem !== checkbox) {
-                                        activeItem.checked = false;
-                                    }
-                                    // Set the currently active item to the checked item
-                                    activeItem = checkbox;
-                                } else {
-                                    // If the item is unchecked, remove it from activeItem
-                                    if (activeItem === checkbox) {
-                                        activeItem = null;
-                                    }
+                        const checkbox = accordionItem.querySelector(`#${itemData.id}`);
+                        checkbox.addEventListener('change', () => {
+                            if (checkbox.checked) {
+                                // If an item is checked, deactivate the previously active item
+                                if (activeItem && activeItem !== checkbox) {
+                                    activeItem.checked = false;
                                 }
-                            });
+                                // Set the currently active item to the checked item
+                                activeItem = checkbox;
+                            } else {
+                                // If the item is unchecked, remove it from activeItem
+                                if (activeItem === checkbox) {
+                                    activeItem = null;
+                                }
+                            }
                         });
-                </script>                
+                    });
+                </script>
             </div>
             <!-- MainColumn-->
             <iframe id="render" src="editorWhiteBoard.html">
@@ -169,15 +169,15 @@
                     <script>
                         const accordionDataRight = [
                             { id: 'Typography', label: 'Бичиглэл', content: '<div class ="forms"><form><label for="font" style="font-size:13px">font:</label><select name="font" id="font"></select></form><form><label for="font-size" style="font-size:13px" >font-size:</label><select name="font-size" id="font-size"></select></form><form><label for="fontWeight" style="font-size:13px" >fontWeight:</label><select name="fontWeight" id="fontWeight"></select></form><form><label for="textAlign" style="font-size:13px" >textAlign:</label><select name="textAlign" id="textAlign"></select></form></div>' },
-                            { id: 'Size', label: 'Хэмжээ', content: '<div class ="forms"><form><label for="height" style="font-size:13px">height(px):</label><input type="number" name="height" id="height"></form><form><label for="width" style="font-size:13px">width(px):</label><input type="number" name="width" id="width"></form></div>' },
-                            { id: 'Border', label: 'Хүрээ', content: '<div class ="forms" ><form><label for="border"  style="font-size:13px">border:</label><select name="border" id="border"></select></form><form><label for="border-radius" style="font-size:13px">borderradius(%)</label><input type="number" name="border-radius" id="border-radius"></form></div>' },
+                            { id: 'Size', label: 'Хэмжээ', content: '<div class ="forms"><form><label for="height" style="font-size:13px">height:</label><input type="number" name="height" id="height"></input><select type="number" name="height" id="heightvh" style="width: 40px"></select></form><form><label for="width" style="font-size:13px">width:</label><input type="number" name="width" id="width"></input><select type="number" name="width" id="widthvw" style="width: 40px"></select></form></div>' },
+                            { id: 'Border', label: 'Хүрээ', content: '<div class ="forms"><form><label for="border"  style="font-size:13px">border:</label><select name="border" id="border"></select></form><form><label for="border-radius" style="font-size:13px">borderradius(%)</label><input type="number" name="border-radius" id="border-radius"></form></div>' },
                             { id: 'Space', label: 'Зай', content: '<div class ="forms"><form><label for="margin" style="font-size:13px">margin(px):</label><input type="number" name="margin" id="margin"></form><form><label for="padding" style="font-size:13px">padding(px):</label><input type="number" name="padding" id="padding"></form></div>' },
                             { id: 'Color', label: 'Өнгө', content: '<div class ="forms"><form><label for="color" style="font-size:13px">font color:</label><input type="color" name="color" id="color"></form><form><label for="background color" style="font-size:13px">back color:</label><input type="color" name="backgroundColor" id="backgroundColor"></form></div>' },
                             { id: 'Media', label: 'Медиа', content: '<div class ="forms"><form action="/upload" method="post" enctype="multipart/form-data"><label for="media" style="font-size:13px">Image:</label><input type="file" name="media" id="backgroundImage" style="width:180px; color:white; margin-bottom: 20px; margin-top: 20px"></form><div id="description" style="display: flex; justify-content:center;"></div><form><label for="objectFit" style="font-size:13px">objectFit:</label><select name="objectFit" id="objectFit"></select></form></div>' },
-                            { id: 'Display', label: 'Дэлгэц', content: '<div class ="forms"><form><label for="display" style="font-size:13px">display:</label><select name="display" id="display"></select></form><form><label for="position" style="font-size:13px">position:</label><select name="position" id="position"></select></form></div>' },
+                            { id: 'Display', label: 'Харагдац', content: '<div class ="forms"><form><label for="display" style="font-size:13px">display:</label><select name="display" id="display"></select></form><form><label for="position" style="font-size:13px">position:</label><select name="position" id="position"></select></form></div>' },
                             { id: 'Alignment', label: 'Эгнүүлэх', content: '<div class ="forms"><form><label for="justifyContent" style="font-size:13px">justifyContent:</label><select name="justifyContent" id="justifyContent"></select></form><form><label for="alignContent" style="font-size:13px">alignContent:</label><select name="alignContent" id="alignContent"></select></form><form><label for="justifyItems" style="font-size:13px">justifyItems:</label><select name="justifyItems" id="justifyItems"></select></form><form><label for="alignItems" style="font-size:13px">alignItems:</label><select name="alignItems" id="alignItems"></select></form><form><label for="gap" style="font-size:13px">gap(px):</label><input type="number" name="gap" id="gap"></form></div>' },
                         ];
-                    
+
                         function createAccordionItem(id, label, content) {
                             const item = document.createElement('li');
                             item.innerHTML = `<label for="${id}">${label}</label>
@@ -185,14 +185,14 @@
                             <div class="content">${content}</div>`;
                             return item;
                         }
-                    
+
                         const accordionRight = document.getElementById('accordionRight');
                         let activeItem2 = null; // Track the currently active item
-                    
+
                         accordionDataRight.forEach(itemData2 => {
                             const accordionItem2 = createAccordionItem(itemData2.id, itemData2.label, itemData2.content);
                             accordionRight.appendChild(accordionItem2);
-                    
+
                             // Add event listener to each accordion item
                             const checkbox2 = accordionItem2.querySelector(`#${itemData2.id}`);
                             checkbox2.addEventListener('change', () => {
@@ -218,7 +218,7 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            
+
             const fontOptions = ['Arial', 'Verdana', 'Helvetica', 'Times New Roman', 'Courier New', 'Georgia'];
             const fontSelect = document.getElementById('font');
             fontOptions.forEach(font => {
@@ -228,7 +228,7 @@
                 fontSelect.appendChild(option);
             });
 
-            
+
             const fontSizeOptions = ['8px', '10px', '12px', '14px', '16px', '18px', '20px', '24px', '28px', '32px'];
             const fontSizeSelect = document.getElementById('font-size');
             fontSizeOptions.forEach(size => {
@@ -238,7 +238,7 @@
                 fontSizeSelect.appendChild(option);
             });
 
-           
+
             const fontWeightOptions = ['normal', 'bold', 'bolder', 'lighter', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
             const fontWeightSelect = document.getElementById('fontWeight');
             fontWeightOptions.forEach(weight => {
@@ -248,7 +248,7 @@
                 fontWeightSelect.appendChild(option);
             });
 
-            
+
             const textAlignOptions = ['left', 'right', 'center', 'justify'];
             const textAlignSelect = document.getElementById('textAlign');
             textAlignOptions.forEach(align => {
@@ -257,8 +257,23 @@
                 option.textContent = align;
                 textAlignSelect.appendChild(option);
             });
+            const switchHeightMeasure = ['px', 'vh','%' ];
+            const heightMeasure = document.getElementById('heightvh');
+            switchHeightMeasure.forEach(align => {
+                const option = document.createElement('option');
+                option.value = align;
+                option.textContent = align;
+                heightMeasure.appendChild(option);
+            });
+            const switchWidthMeasure = ['px', 'vw', '%' ];
+            const widthMeasure = document.getElementById('widthvw');
+            switchWidthMeasure.forEach(align => {
+                const option = document.createElement('option');
+                option.value = align;
+                option.textContent = align;
+                widthMeasure.appendChild(option);
+            });
 
-            
             const borderOptions = ['none', 'solid', 'dashed', 'dotted', 'double', 'groove', 'ridge', 'inset', 'outset'];
             const borderSelect = document.getElementById('border');
             borderOptions.forEach(border => {
@@ -268,7 +283,7 @@
                 borderSelect.appendChild(option);
             });
 
-            
+
             const displayOptions = ['block', 'inline', 'inline-block', 'flex', 'grid', 'none'];
             const displaySelect = document.getElementById('display');
             displayOptions.forEach(display => {
@@ -278,7 +293,7 @@
                 displaySelect.appendChild(option);
             });
 
-            
+
             const positionOptions = ['static', 'relative', 'absolute', 'fixed', 'sticky'];
             const positionSelect = document.getElementById('position');
             positionOptions.forEach(position => {
@@ -288,7 +303,7 @@
                 positionSelect.appendChild(option);
             });
 
-            
+
             const justifyContentOptions = ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly'];
             const justifyContentSelect = document.getElementById('justifyContent');
             justifyContentOptions.forEach(justifyContent => {
@@ -306,7 +321,7 @@
                 option.textContent = objectFit;
                 objectFitSelect.appendChild(option);
             });
-            
+
             const alignContentOptions = ['stretch', 'center', 'flex-start', 'flex-end', 'space-between', 'space-around'];
             const alignContentSelect = document.getElementById('alignContent');
             alignContentOptions.forEach(alignContent => {
@@ -316,7 +331,7 @@
                 alignContentSelect.appendChild(option);
             });
 
-            
+
             const justifyItemsOptions = ['start', 'end', 'center', 'stretch', 'legacy', 'normal', 'left', 'right', 'overflow-alignment', 'baseline alignment', 'initial', 'inherit'];
             const justifyItemsSelect = document.getElementById('justifyItems');
             justifyItemsOptions.forEach(justifyItems => {
@@ -326,7 +341,7 @@
                 justifyItemsSelect.appendChild(option);
             });
 
-           
+
             const alignItemsOptions = ['stretch', 'center', 'flex-start', 'flex-end', 'baseline'];
             const alignItemsSelect = document.getElementById('alignItems');
             alignItemsOptions.forEach(alignItems => {

@@ -4,6 +4,8 @@ const selectedElementFontMenu = window.parent.document.getElementById('font')
 const selectedElementFontSizeMenu = window.parent.document.getElementById('font-size')
 const selectedElementFontWeightMenu = window.parent.document.getElementById('fontWeight')
 const selectedElementHeightMenu = window.parent.document.getElementById('height')
+const heightMeasure = window.parent.document.getElementById('heightvh')
+const widthMeasure = window.parent.document.getElementById('widthvw')
 const selectedElementWidthMenu = window.parent.document.getElementById('width')
 const selectedElementBorderMenu = window.parent.document.getElementById('border')
 const selectedElementBorderRadiusMenu = window.parent.document.getElementById('border-radius')
@@ -23,6 +25,7 @@ const selectedElementJustifyItemsMenu = window.parent.document.getElementById('j
 const selectedElementAlignItemsMenu = window.parent.document.getElementById('alignItems')
 const selectedElementGapMenu = window.parent.document.getElementById('gap')
 const selectedElementObjectFitMenu = window.parent.document.getElementById('objectFit')
+
 
 let imageDescription = window.parent.document.getElementById('description');
 let descriptionIn = window.parent.document.createElement('p');
@@ -179,10 +182,9 @@ var imageName = "Хоосон";
                     window.selectedHeight = collectStyle.getPropertyValue('height');
                 }
                 else if (collectStyle[i] === 'width') {
-                    if (notSelectDiv.includes('div')) {
-                    } else {
                         window.selectedWidth = collectStyle.getPropertyValue('width');
-                    }
+                        
+                
                 }
                 else if (collectStyle[i] === 'border-bottom-style') {
                     window.selectedBorderStyle = collectStyle.getPropertyValue('border-bottom-style');
@@ -270,11 +272,6 @@ var imageName = "Хоосон";
         }
     });
 
-    
-    
-    
-    
-    
     Object.defineProperty(window, 'selectedTextAlign', {
         get: function () {
             return selectedTextAlign;
@@ -516,10 +513,10 @@ var imageName = "Хоосон";
         selectedElement.style.gap = selectedElementGapMenu.value.trim()+ "px";
     };
     selectedElementHeightMenu.onchange = function(){
-        selectedElement.style.height = selectedElementHeightMenu.value.trim() + "px";
+        selectedElement.style.height = selectedElementHeightMenu.value.trim() + heightMeasure.value;
     };
     selectedElementWidthMenu.onchange = function(){
-        selectedElement.style.width = selectedElementWidthMenu.value.trim() + "px";
+        selectedElement.style.width = selectedElementWidthMenu.value.trim() + widthMeasure.value;
         
     };
     selectedElementBorderMenu.onchange = function(){

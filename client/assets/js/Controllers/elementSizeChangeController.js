@@ -19,6 +19,7 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                 selectedElementToChange.style.cursor = 'nwse-resize';
                 selectedElementToChange.parentElement.onmousedown = function() {
                     selectedElementToChange.parentElement.onmousemove = function(e) {
+                        selectedElementToChange.style.outline = "5px solid #87CEFA"
                         x = e.clientX;
                         y = e.clientY;
                         selectedElementToChange.style.top = y + 'px';
@@ -29,7 +30,7 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                     }
                     
                     selectedElementToChange.parentElement.onmouseup = function () {
-                        selectedElementToChange.style.outline = "5px solid #87CEFA"
+                       
                         
                         selectedElementToChange.parentElement.onmousedown = function(){
                             
@@ -49,6 +50,9 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                     selectedElementToChange.style.cursor = 'nwse-resize';
                     selectedElementToChange.parentElement.onmousedown = function() {
                         selectedElementToChange.parentElement.onmousemove = function(e) {
+                        selectedElementToChange.style.outline = "5px solid #87CEFA"
+
+                        
                             x = e.clientX;
                             y = e.clientY;
                             selectedElementToChange.style.height = y - yleftcorner + 'px';
@@ -56,7 +60,7 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                         }
                     }
                     selectedElementToChange.parentElement.onmouseup = function () {
-                        selectedElementToChange.style.outline = "5px solid #87CEFA"
+                        
                         
                         selectedElementToChange.parentElement.onmousedown = function(){
                         }
@@ -74,6 +78,8 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                 selectedElementToChange.parentElement.style.cursor = 'sw-resize';
                 selectedElementToChange.parentElement.onmousedown = function() {
                     selectedElementToChange.parentElement.onmousemove = function(e) {
+                        selectedElementToChange.style.outline = "5px solid #87CEFA"
+
                         
 
                         x = e.clientX;
@@ -88,7 +94,7 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                 }
                 
                 selectedElementToChange.parentElement.onmouseup = function () {
-                    selectedElementToChange.style.outline = "5px solid #87CEFA"
+             
                     
                     selectedElementToChange.parentElement.onmousedown = function(){
                         
@@ -106,6 +112,7 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                 
                 selectedElementToChange.parentElement.onmousedown = function() {
                     selectedElementToChange.parentElement.onmousemove = function(e) {
+                        selectedElementToChange.style.outline = "5px solid #87CEFA"
 
                         x = e.clientX;
                         y = e.clientY;
@@ -119,7 +126,7 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                     }
                     
                     selectedElementToChange.parentElement.onmouseup = function () {
-                    selectedElementToChange.style.outline = "5px solid #87CEFA"
+                    
                     
                     selectedElementToChange.parentElement.onmousedown = function(){
                         
@@ -138,6 +145,8 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                 
                 selectedElementToChange.parentElement.onmousedown = function() {
                     selectedElementToChange.parentElement.onmousemove = function(e) {
+                        selectedElementToChange.style.outline = "5px solid #87CEFA"
+
                         x = e.clientX;
                         y = e.clientY;
                         selectedElementToChange.style.top = y + 'px';
@@ -147,7 +156,7 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                 }
                 
                 selectedElementToChange.parentElement.onmouseup = function () {
-                    selectedElementToChange.style.outline = "5px solid #87CEFA"
+                   
                     
                     selectedElementToChange.parentElement.onmousedown = function(){
                         
@@ -165,6 +174,8 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                 selectedElementToChange.parentElement.style.cursor = 'ns-resize';
                 selectedElementToChange.parentElement.onmousedown = function() {
                     selectedElementToChange.parentElement.onmousemove = function(e) {
+                        selectedElementToChange.style.outline = "5px solid #87CEFA"
+
 
                         x = e.clientX;
                         y = e.clientY;
@@ -174,7 +185,7 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                 }
                 
                 selectedElementToChange.parentElement.onmouseup = function () {
-                    selectedElementToChange.style.outline = "5px solid #87CEFA"
+                    
                     selectedElementToChange.parentElement.onmousedown = function(){
                         
                     }
@@ -198,6 +209,8 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                 
                 selectedElementToChange.parentElement.onmousedown = function() {
                     selectedElementToChange.parentElement.onmousemove = function(e) {
+                        selectedElementToChange.style.outline = "5px solid #87CEFA"
+
                 
                         
                         x = e.clientX;
@@ -218,7 +231,6 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                         
                         
                     }
-                    selectedElementToChange.style.outline = "5px solid #87CEFA"
                     
                     
                     
@@ -237,6 +249,8 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                 selectedElementToChange.parentElement.onmousedown = function() {
                     
                     selectedElementToChange.parentElement.onmousemove = function(e) {
+                        selectedElementToChange.style.outline = "5px solid #87CEFA"
+
                         x = e.clientX;
                         y = e.clientY;
                         selectedElementToChange.style.width = x - xleftcorner + 'px';
@@ -250,7 +264,7 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                     selectedElementToChange.parentElement.onmousemove = function(){
                         
                     }
-                    selectedElementToChange.style.outline = "5px solid #87CEFA"
+                  
                 }   
             }
                 //Hureenii dotor bolon gaduurah cursoriin helberiig zaahaas gadna elementiin bairshiliig uurchluh bolomjtoi bolgoh
@@ -266,16 +280,20 @@ whitePageWay.contentWindow.addEventListener('click', (event) => {
                     selectedElementToChange.style.cursor = 'all-scroll';
                 }
                 selectedElementToChange.onmousedown = function () {
+                    
                     var changingX = x - xleftcorner; 
                     var changingY = y - yleftcorner; 
                     
                     selectedElementToChange.parentElement.onmousedown = function(){
+                     
                         
                     }
                     selectedElementToChange.parentElement.onmousemove = function(){
                         
                     }
                     selectedElementToChange.parentElement.onmousemove = function(e){
+                        selectedElementToChange.style.outline = "5px solid #87CEFA"
+
                         x = e.clientX;
                         y = e.clientY;
                         let winWidth = insideWhitePage.getBoundingClientRect().width,

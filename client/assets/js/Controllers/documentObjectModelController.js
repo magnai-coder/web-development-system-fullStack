@@ -17,6 +17,7 @@ function downloading() {
     }
 }
 function reloadFrame(){
-    console.log(document.getElementById("render").contentWindow.document.getElementById("whitePage"));
-    document.getElementById("render").contentWindow.location.reload(true);
+    const page = document.getElementById("render").contentWindow.document.getElementById("whitePage");
+    page.removeChild(page.firstChild);
+    sessionStorage.clear();
 }
