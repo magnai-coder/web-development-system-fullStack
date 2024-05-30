@@ -6,10 +6,10 @@ var count = 0;
 
 
 const sources = [
-    "../assets/imgs/main/partsIn.png",
+    "../assets/imgs/main/partsIn.PNG",
     "../assets/imgs/main/buttons.PNG",
     "../assets/imgs/main/addingComponent.PNG",
-    "../assets/imgs/main/dragAndDrop.png",
+    "../assets/imgs/main/dragAndDrop.PNG",
     "../assets/imgs/main/editing.PNG",
     "../assets/imgs/main/selectElement.PNG",
     "../assets/imgs/main/textEdit.PNG",
