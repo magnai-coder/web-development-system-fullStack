@@ -12,7 +12,7 @@ async function handleSaveCode() {
         }
         
         const test = mainCodeContainer.innerHTML;
-       
+        
         const response = await fetch("http://localhost:3030/save-code", {
             method: "POST",
             headers: {
@@ -49,6 +49,7 @@ async function handleSaveCode() {
         console.error("Fetch error:", error);
     }
 }
+var modal = document.getElementById("myModal");
 
 
 async function handleSaveCode2() {
@@ -81,7 +82,7 @@ async function handleSaveCode2() {
 function updateSourceCode() {
     const sourceCode = document.querySelector(".addingSection");
     const pureData = sessionStorage.getItem('pureData');
-
+    
     if (pureData) {
         sourceCode.insertAdjacentHTML('afterbegin', pureData);
     } else {
@@ -92,9 +93,9 @@ function updateSourceCode() {
 
 document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector(".addingSection")) {
-       
+        
         updateSourceCode();
-       
+        
     }
 });
 
@@ -103,24 +104,27 @@ document.addEventListener('DOMContentLoaded', () => {
 const mainCodeContainerRoute = window.parent.document.getElementById('render');
 
 async function backPage(){
-    
     try {
         const pureData = sessionStorage.getItem('pureData');
         const mainCodeContainer = document.getElementById('whitePage');
         if(pureData){
-                mainCodeContainer.insertAdjacentHTML('afterbegin', pureData)
-                console.log(pureData)
+            mainCodeContainer.insertAdjacentHTML('afterbegin', pureData)
+            console.log(pureData)
         }
     }catch(error){
         console.error("No data found in sessionStorage.");
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
     if (window.parent.document.getElementById('render')) {
         // This is the second page
         backPage();
-
+        if(sessionStorage.getItem('pureData') != null){
+            modal.style.display = "none";
+        }
+        console.log()
+        
     }
+    
 });
